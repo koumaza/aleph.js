@@ -34,7 +34,7 @@ jobs:
           version: latest
 
       - name: Deno test
-        run: deno test -A --unstable --import-map=import_map.json --location=https://deno.land/x/aleph
+        run: deno test -A --unstable --import-map=import_map.json --location=https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/
 
       - name: Cargo test
         run: cd compiler && cargo test --all
