@@ -1,3 +1,5 @@
+> # Replaced with crazy
+
 [![Aleph.js: The Full-stack Framework in Deno.](./design/poster.svg)](https://alephjs.org)
 
 <p>
@@ -18,7 +20,7 @@
 
   ```bash
   # get started
-  $ deno run -A https://deno.land/x/aleph/install.ts
+  $ deno run -A https://raw.githubusercontent.com/denoland/deno_std/main/install.ts
   $ aleph -h
   ```
 
