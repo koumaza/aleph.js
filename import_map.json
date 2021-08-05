@@ -1,10 +1,14 @@
 {
   "imports": {
-    "std/": "https://deno.land/std@0.100.0/",
-    "aleph/": "https://deno.land/x/aleph@v0.3.0-alpha.33/",
-    "aleph/web": "https://deno.land/x/aleph@v0.3.0-alpha.33/framework/core/mod.ts",
-    "aleph/react": "https://deno.land/x/aleph@v0.3.0-alpha.33/framework/react/mod.ts",
-    "react": "https://esm.sh/react@17.0.2",
-    "react-dom": "https://esm.sh/react-dom@17.0.2"
-  }
+    "~/": "./",
+    "$/": "./plugin",
+    "std/": "https://raw.githubusercontent.com/denoland/deno_std/main/",
+    "aleph/": "https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/",
+    "aleph/types": "https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/types.ts",
+    "aleph/web": "https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/core/mod.ts",
+    "aleph/react": "https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/react/mod.ts",
+    "react": "https://esm.sh/react@experimental",
+    "react-dom": "https://esm.sh/react-dom@experimental"
+  },
+  "scopes": {}
 }
