@@ -17,12 +17,12 @@ export async function prepublish(version: string): Promise<boolean> {
     const data = await Deno.readTextFile('./import_map.json')
     const importMap = JSON.parse(data)
     Object.assign(importMap.imports, {
-      'aleph/': `https://deno.land/x/aleph@v${version}/`,
-      'aleph/types': `https://deno.land/x/aleph@v${version}/types.ts`,
-      'aleph/web': `https://deno.land/x/aleph@v${version}/framework/core/mod.ts`,
-      'aleph/react': `https://deno.land/x/aleph@v${version}/framework/react/mod.ts`,
-      'react': `https://esm.sh/react@${defaultReactVersion}`,
-      'react-dom': `https://esm.sh/react-dom@${defaultReactVersion}`,
+      'aleph/': `https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/`,
+      'aleph/types': `https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump//types.ts`,
+      'aleph/web': `https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump//framework/core/mod.ts`,
+      'aleph/react': `https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump//framework/react/mod.ts`,
+      'react': `https://esm.sh/react@experimmental`,
+      'react-dom': `https://esm.sh/react-dom@experimmental`,
     })
     await Deno.writeTextFile(
       './import_map.json',
