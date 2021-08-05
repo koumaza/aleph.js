@@ -29,7 +29,7 @@ Deno.test('server/helper: toRelativePath', () => {
 })
 
 Deno.test('server/helper: toLocalPath', () => {
-  assertEquals(toLocalPath('https://deno.land/x/aleph@v0.3.0-alpha.29/'), '/-/deno.land/x/aleph@v0.3.0-alpha.29/')
+  assertEquals(toLocalPath('https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/'), '/-/raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/')
   assertEquals(toLocalPath('http://foo.com/bar?lang=us-en'), `/-/http_foo.com/bar.${util.btoaUrl('lang=us-en')}`)
   assertEquals(toLocalPath('http://foo.com:8080/bar'), '/-/http_foo.com_8080/bar')
   assertEquals(toLocalPath('file://foo/bar/'), 'foo/bar/')
