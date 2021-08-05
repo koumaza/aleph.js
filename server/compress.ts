@@ -1,5 +1,5 @@
-export const deno_x_brotli = 'https://deno.land/x/brotli@v0.1.4/mod.ts'
-export const deno_x_flate = 'https://deno.land/x/denoflate@1.2.1/mod.ts'
+export const deno_x_brotli = 'https://raw.githubusercontent.com/denosaurs/deno_brotli/master/mod.ts'
+export const deno_x_flate = 'https://raw.githubusercontent.com/hazae41/denoflate/master/mod.ts'
 
 class Compression {
   #brotli: ((data: Uint8Array) => Uint8Array) | null = null
