@@ -20,7 +20,7 @@
 
   ```bash
   # get started
-  $ deno run -A https://raw.githubusercontent.com/denoland/deno_std/main/install.ts
+  $ deno run -A https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/install.ts
   $ aleph -h
   ```
 
