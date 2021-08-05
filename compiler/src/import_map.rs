@@ -121,13 +121,13 @@ mod tests {
     imports.insert("~/".into(), "./".into());
     imports.insert("comps/".into(), "./components/".into());
     imports.insert("lib".into(), "./lib/mod.ts".into());
-    imports.insert("react".into(), "https://esm.sh/react".into());
-    imports.insert("react-dom/".into(), "https://esm.sh/react-dom/".into());
+    imports.insert("react".into(), "https://esm.sh/react@experimental".into());
+    imports.insert("react-dom/".into(), "https://esm.sh/react-dom@experimental/".into());
     imports.insert(
-      "https://deno.land/x/aleph/".into(),
+      "https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/".into(),
       "http://localhost:2020/".into(),
     );
-    scope_imports.insert("react".into(), "https://esm.sh/react@16.4.0".into());
+    scope_imports.insert("react".into(), "https://esm.sh/react@experimental".into());
     scopes.insert("/scope/".into(), scope_imports);
     let import_map = ImportMap::from_hashmap(ImportHashMap { imports, scopes });
     assert_eq!(
@@ -145,19 +145,19 @@ mod tests {
     assert_eq!(import_map.resolve("/pages/index.tsx", "lib"), "/lib/mod.ts");
     assert_eq!(
       import_map.resolve("/app.tsx", "react"),
-      "https://esm.sh/react"
+      "https://esm.sh/react@experimental"
     );
     assert_eq!(
-      import_map.resolve("/app.tsx", "https://deno.land/x/aleph/mod.ts"),
+      import_map.resolve("/app.tsx", "https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/mod.ts"),
       "http://localhost:2020/mod.ts"
     );
     assert_eq!(
       import_map.resolve("/framework/react/renderer.ts", "react-dom/server"),
-      "https://esm.sh/react-dom/server"
+      "https://esm.sh/react-dom@experimental/server"
     );
     assert_eq!(
       import_map.resolve("/scope/react-dom", "react"),
-      "https://esm.sh/react@16.4.0"
+      "https://esm.sh/react@experimental"
     );
   }
 }
