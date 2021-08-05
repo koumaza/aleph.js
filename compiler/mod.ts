@@ -68,7 +68,7 @@ type InlineStyles = Record<string, InlineStyle>
 let wasmReady: Promise<void> | boolean = false
 
 async function initWasm() {
-  const cacheDir = join(await getDenoDir(), `deps/https/deno.land/aleph`)
+  const cacheDir = join(await getDenoDir(), `deps/https/raw.githubusercontent.com/denoland/deno_std/main`)
   const cachePath = `${cacheDir}/compiler.${checksum}.wasm`
   if (await existsFile(cachePath)) {
     const wasmData = await Deno.readFile(cachePath)
