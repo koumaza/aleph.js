@@ -483,16 +483,16 @@ mod tests {
     "#;
     let (code, resolver) = st("/pages/index.tsx", source, false);
     assert!(code.contains(
-      "import __ALEPH__Anchor from \"../-/deno.land/x/aleph@v0.3.0/framework/react/components/Anchor.js\""
+      "import __ALEPH__Anchor from \"../-/raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/react/components/Anchor.ts\""
     ));
     assert!(code.contains(
-      "import __ALEPH__Head from \"../-/deno.land/x/aleph@v0.3.0/framework/react/components/Head.js\""
+      "import __ALEPH__Head from \"../-/raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/react/components/Head.ts\""
     ));
     assert!(code.contains(
-      "import __ALEPH__StyleLink from \"../-/deno.land/x/aleph@v0.3.0/framework/react/components/StyleLink.js\""
+      "import __ALEPH__StyleLink from \"../-/raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/react/components/StyleLink.ts\""
     ));
     assert!(code.contains(
-      "import __ALEPH__CustomScript from \"../-/deno.land/x/aleph@v0.3.0/framework/react/components/CustomScript.js\""
+      "import __ALEPH__CustomScript from \"../-/raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/react/components/CustomScript.ts\""
     ));
     assert!(code.contains("React.createElement(\"a\","));
     assert!(code.contains("React.createElement(__ALEPH__Anchor,"));
@@ -515,11 +515,11 @@ mod tests {
         .collect::<Vec<&str>>(),
       vec![
         "/style/index.css",
-        "https://deno.land/x/aleph@v0.3.0/framework/react/components/Head.ts",
-        "https://deno.land/x/aleph@v0.3.0/framework/react/components/StyleLink.ts",
-        "https://deno.land/x/aleph@v0.3.0/framework/react/components/Anchor.ts",
-        "https://deno.land/x/aleph@v0.3.0/framework/react/components/CustomScript.ts",
-        "https://esm.sh/react"
+        "https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/react/components/Head.ts",
+        "https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/react/components/StyleLink.ts",
+        "https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/react/components/Anchor.ts",
+        "https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/react/components/CustomScript.ts",
+        "https://esm.sh/react@experimental"
       ]
     );
   }
@@ -527,7 +527,7 @@ mod tests {
   #[test]
   fn resolve_jsx_css_modules() {
     let source = r#"
-      import React from "https://esm.sh/react"
+      import React from "https://esm.sh/react@experimental"
 
       export default function Index() {
         return (
@@ -542,7 +542,7 @@ mod tests {
     "#;
     let (code, resolver) = st("/pages/index.tsx", source, false);
     assert!(code.contains(
-      "import __ALEPH__StyleLink from \"../-/deno.land/x/aleph@v0.3.0/framework/react/components/StyleLink.js\""
+      "import __ALEPH__StyleLink from \"../-/raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/react/components/StyleLink.js\""
     ));
     assert!(code.contains("React.createElement(__ALEPH__StyleLink,"));
     assert!(code.contains("href: \"/style/index.module.css\""));
@@ -572,8 +572,8 @@ mod tests {
       vec![
         "/style/app.module.css",
         "/style/index.module.css",
-        "https://deno.land/x/aleph@v0.3.0/framework/react/components/StyleLink.ts",
-        "https://esm.sh/react"
+        "https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/react/components/StyleLink.ts",
+        "https://esm.sh/react@experimental"
       ]
     );
   }
@@ -602,7 +602,7 @@ mod tests {
     "#;
     let (code, resolver) = st("/pages/index.tsx", source, false);
     assert!(code.contains(
-      "import __ALEPH__InlineStyle from \"../-/deno.land/x/aleph@v0.3.0/framework/react/components/InlineStyle.js\""
+      "import __ALEPH__InlineStyle from \"../-/raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump//framework/react/components/InlineStyle.js\""
     ));
     assert!(code.contains("React.createElement(__ALEPH__InlineStyle,"));
     assert!(code.contains("__styleId: \"inline-style-"));
