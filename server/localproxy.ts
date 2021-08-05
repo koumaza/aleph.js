@@ -1,8 +1,8 @@
-import { join } from 'https://deno.land/std@0.100.0/path/mod.ts'
+import { join } from 'https://raw.githubusercontent.com/denoland/deno_std/main/path/mod.ts'
 import log from '../shared/log.ts'
 import { getContentType } from './mime.ts'
 
-/** proxy https://deno.land/x/aleph on localhost */
+/** proxy https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/ on localhost */
 export async function localProxy(cwd: string, port: number) {
   const s = Deno.listen({ port })
   const serve = async (conn: Deno.Conn) => {
@@ -53,7 +53,7 @@ export async function localProxy(cwd: string, port: number) {
     Deno.env.set('ALEPH_DEV_PORT', port.toString())
   }
 
-  log.debug(`Proxy https://deno.land/x/aleph on http://localhost:${port}`)
+  log.debug(`Proxy https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/ on http://localhost:${port}`)
 
   for await (const conn of s) {
     serve(conn)
