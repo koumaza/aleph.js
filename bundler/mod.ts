@@ -1,5 +1,5 @@
-import { dirname, join } from 'https://deno.land/std@0.100.0/path/mod.ts'
-import { ensureDir } from 'https://deno.land/std@0.100.0/fs/ensure_dir.ts'
+import { dirname, join } from 'https://raw.githubusercontent.com/denoland/deno_std/main/path/mod.ts'
+import { ensureDir } from 'https://raw.githubusercontent.com/denoland/deno_std/main/fs/ensure_dir.ts'
 import { transform } from '../compiler/mod.ts'
 import { trimBuiltinModuleExts } from '../framework/core/module.ts'
 import { ensureTextFile, existsFile, lazyRemove } from '../shared/fs.ts'
