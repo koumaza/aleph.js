@@ -1,8 +1,8 @@
-import { Untar } from 'https://deno.land/std@0.100.0/archive/tar.ts'
-import { green, dim } from 'https://deno.land/std@0.100.0/fmt/colors.ts'
-import { ensureDir } from 'https://deno.land/std@0.100.0/fs/ensure_dir.ts'
-import { join } from 'https://deno.land/std@0.100.0/path/mod.ts'
-import { gunzip } from 'https://deno.land/x/denoflate@1.2.1/mod.ts'
+import { Untar } from 'https://raw.githubusercontent.com/denoland/deno_std/main/archive/tar.ts'
+import { green, dim } from 'https://raw.githubusercontent.com/denoland/deno_std/main/fmt/colors.ts'
+import { ensureDir } from 'https://raw.githubusercontent.com/denoland/deno_std/main/fs/ensure_dir.ts'
+import { join } from 'https://raw.githubusercontent.com/denoland/deno_std/main/path/mod.ts'
+import { gunzip } from 'https://raw.githubusercontent.com/hazae41/denoflate/master/mod.ts'
 import { ensureTextFile } from '../shared/fs.ts'
 import util from '../shared/util.ts'
 import { defaultReactVersion } from '../shared/constants.ts'
@@ -60,15 +60,17 @@ export default async function (nameArg?: string) {
   ]
   const importMap = {
     imports: {
-      '~/': './',
-      'aleph/': `https://deno.land/x/aleph@v${VERSION}/`,
-      'aleph/types': `https://deno.land/x/aleph@v${VERSION}/types.ts`,
-      'aleph/web': `https://deno.land/x/aleph@v${VERSION}/framework/core/mod.ts`,
-      'aleph/react': `https://deno.land/x/aleph@v${VERSION}/framework/react/mod.ts`,
-      'react': `https://esm.sh/react@${defaultReactVersion}`,
-      'react-dom': `https://esm.sh/react-dom@${defaultReactVersion}`,
-    },
-    scopes: {}
+      '~/': `.`,
+      '$/': `./plugin`,
+      'std/': `https://raw.githubusercontent.com/denoland/deno_std/main/`,
+      'aleph/': `https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/`,
+      'aleph/types': `https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/types.ts`,
+      'aleph/web': `https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/core/mod.ts`,
+      'aleph/react': `https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/react/mod.ts`,
+      'react': `https://esm.sh/react@experimental`,
+      'react-dom': `https://esm.sh/react-dom@experimental`
+  },
+  scopes: {}
   }
   await Promise.all([
     Deno.writeTextFile(join(cwd, name, '.gitignore'), gitignore.join('\n')),
