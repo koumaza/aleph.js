@@ -1,4 +1,4 @@
-import { join } from 'https://deno.land/std@0.100.0/path/mod.ts'
+import { join } from 'https://raw.githubusercontent.com/denoland/deno_std/main/path/mod.ts'
 import { builtinModuleExts, trimBuiltinModuleExts } from '../framework/core/module.ts'
 import { resolveURL } from '../framework/core/routing.ts'
 import { existsFile } from '../shared/fs.ts'
