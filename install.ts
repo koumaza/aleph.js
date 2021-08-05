@@ -34,7 +34,7 @@ export async function install(version: string, forceUpgrade = false) {
       '--location', 'http://localhost',
       '-n', 'aleph',
       '-f',
-      `https://deno.land/x/aleph@${version}/cli.ts`
+      `https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/cli.ts`
     ],
     stdout: 'null',
     stderr: 'inherit'
