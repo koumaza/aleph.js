@@ -1,9 +1,9 @@
-import { dim } from 'https://deno.land/std@0.100.0/fmt/colors.ts'
-import { encode } from 'https://deno.land/std@0.100.0/encoding/base64.ts'
-import { exists } from 'https://deno.land/std@0.100.0/fs/exists.ts'
-import { ensureDir } from 'https://deno.land/std@0.100.0/fs/ensure_dir.ts'
-import { createHash } from 'https://deno.land/std@0.100.0/hash/mod.ts'
-import { compress } from 'https://deno.land/x/brotli@v0.1.4/mod.ts'
+import { dim } from 'https://raw.githubusercontent.com/denoland/deno_std/main/fmt/colors.ts'
+import { encode } from 'https://raw.githubusercontent.com/denoland/deno_std/main/encoding/base64.ts'
+import { exists } from 'https://raw.githubusercontent.com/denoland/deno_std/main/fs/exists.ts'
+import { ensureDir } from 'https://raw.githubusercontent.com/denoland/deno_std/main/fs/ensure_dir.ts'
+import { createHash } from 'https://raw.githubusercontent.com/denoland/deno_std/main/hash/mod.ts'
+import { compress } from 'https://raw.githubusercontent.com/denosaurs/deno_brotli/master/mod.ts'
 import util from '../shared/util.ts'
 
 async function run(cmd: string[]) {
@@ -31,8 +31,8 @@ if (import.meta.main) {
     await Deno.writeTextFile(
       './dist/wasm.js',
       [
-        `import { decode } from "https://deno.land/std@0.100.0/encoding/base64.ts";`,
-        `import { decompress } from "https://deno.land/x/brotli@v0.1.4/mod.ts";`,
+        `import { decode } from "https://raw.githubusercontent.com/denoland/deno_std/main/encoding/base64.ts";`,
+        `import { decompress } from "https://raw.githubusercontent.com/denosaurs/deno_brotli/master/mod.ts";`,
         `const dataRaw = "${encode(compress(wasmData))}";`,
         `export default () => decompress(decode(dataRaw));`
       ].join('\n')
@@ -43,7 +43,7 @@ if (import.meta.main) {
     )
     await Deno.writeTextFile(
       './dist/compiler.js',
-      `import { red } from 'https://deno.land/std@0.100.0/fmt/colors.ts';` + jsCode.replace('console.error(getStringFromWasm0(arg0, arg1));', `
+      `import { red } from 'https://raw.githubusercontent.com/denoland/deno_std/main/fmt/colors.ts';` + jsCode.replace('console.error(getStringFromWasm0(arg0, arg1));', `
         const msg = getStringFromWasm0(arg0, arg1);
         if (msg.includes('DiagnosticBuffer(["')) {
           const diagnostic = msg.split('DiagnosticBuffer(["')[1].split('"])')[0]
