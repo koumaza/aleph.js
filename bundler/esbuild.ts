@@ -1,7 +1,7 @@
 import { join } from 'https://raw.githubusercontent.com/denoland/deno_std/main/path/mod.ts'
 import { cache } from '../server/cache.ts'
 import util from '../shared/util.ts'
-// @deno-types="https://raw.githubusercontent.com/esbuild/deno-esbuild/mainmod.d.ts"
+// @deno-types="https://raw.githubusercontent.com/esbuild/deno-esbuild/main/mod.d.ts"
 import { build, stop, Plugin } from 'https://raw.githubusercontent.com/esbuild/deno-esbuild/main/mod.js'
 
 export {
