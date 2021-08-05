@@ -471,9 +471,9 @@ mod tests {
       export const [ d, e, ...{f, g, rest3} ] = [0, 0, {f:0,g:0,h:0}]
       let i
       export const j = i = [0, 0]
-      export { exists, existsSync } from "https://deno.land/std/fs/exists.ts"
-      export * as DenoStdServer from "https://deno.land/std/http/sever.ts"
-      export * from "https://deno.land/std/http/sever.ts"
+      export { exists, existsSync } from "https://raw.githubusercontent.com/denoland/deno_std/main/fs/exists.ts"
+      export * as DenoStdServer from "https://raw.githubusercontent.com/denoland/deno_std/main/http/sever.ts"
+      export * from "https://raw.githubusercontent.com/denoland/deno_std/main/http/sever.ts"
     "#;
     let module = SWC::parse("/app.ts", source, None).expect("could not parse module");
     assert_eq!(
@@ -500,7 +500,7 @@ mod tests {
         "exists",
         "existsSync",
         "DenoStdServer",
-        "{https://deno.land/std/http/sever.ts}",
+        "{https://raw.githubusercontent.com/denoland/deno_std/main/http/sever.ts}",
       ]
       .into_iter()
       .map(|s| s.to_owned())
@@ -515,12 +515,12 @@ mod tests {
       import { redirect } from 'aleph'
       import { useDeno } from 'aleph/hooks.ts'
       import { render } from 'react-dom/server'
-      import { render as _render } from 'https://cdn.esm.sh/v1/react-dom@16.14.1/es2020/react-dom.js'
+      import { render as _render } from 'https://cdn.esm.sh/v1/react-dom@experimental/esnext/react-dom.js'
       import Logo from '../component/logo.tsx'
       import Logo2 from '~/component/logo.tsx'
       import Logo3 from '@/component/logo.tsx'
       const AsyncLogo = React.lazy(() => import('../components/async-logo.tsx'))
-      export { useState } from 'https://esm.sh/react'
+      export { useState } from 'https://esm.sh/react@experimental'
       export * from 'https://esm.sh/swr'
       export { React, redirect, useDeno, render, _render, Logo, Logo2, Logo3, AsyncLogo }
     "#;
@@ -528,10 +528,10 @@ mod tests {
     let mut imports: HashMap<String, String> = HashMap::new();
     imports.insert("@/".into(), "./".into());
     imports.insert("~/".into(), "./".into());
-    imports.insert("aleph".into(), "https://deno.land/x/aleph/mod.ts".into());
-    imports.insert("aleph/".into(), "https://deno.land/x/aleph/".into());
-    imports.insert("react".into(), "https://esm.sh/react".into());
-    imports.insert("react-dom/".into(), "https://esm.sh/react-dom/".into());
+    imports.insert("aleph".into(), "https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/mod.ts".into());
+    imports.insert("aleph/".into(), "https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/".into());
+    imports.insert("react".into(), "https://esm.sh/react@experimental".into());
+    imports.insert("react-dom/".into(), "https://esm.sh/react-dom@exerimental/".into());
     let resolver = Rc::new(RefCell::new(Resolver::new(
       "/pages/index.tsx",
       "/",
@@ -544,7 +544,7 @@ mod tests {
       vec![],
       Some("https://deno.land/x/aleph@v1.0.0".into()),
       Some(ReactOptions {
-        version: "17.0.2".into(),
+        version: "experimental".into(),
         esm_sh_build_version: 2,
       }),
     )));
@@ -553,17 +553,17 @@ mod tests {
       .unwrap()
       .0;
     println!("{}", code);
-    assert!(code.contains("import React from \"../-/esm.sh/react@17.0.2.js\""));
-    assert!(code.contains("import { redirect } from \"../-/deno.land/x/aleph@v1.0.0/mod.js\""));
-    assert!(code.contains("import { useDeno } from \"../-/deno.land/x/aleph@v1.0.0/hooks.js\""));
-    assert!(code.contains("import { render } from \"../-/esm.sh/react-dom@17.0.2/server.js\""));
-    assert!(code.contains("import { render as _render } from \"../-/cdn.esm.sh/v2/react-dom@17.0.2/es2020/react-dom.js\""));
+    assert!(code.contains("import React from \"../-/esm.sh/react@experimental.js\""));
+    assert!(code.contains("import { redirect } from \"../-/raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/mod.js\""));
+    assert!(code.contains("import { useDeno } from \"../-/raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/hooks.js\""));
+    assert!(code.contains("import { render } from \"../-/esm.sh/react-dom@experimental/server.js\""));
+    assert!(code.contains("import { render as _render } from \"../-/cdn.esm.sh/v2/react-dom@experimental/esnext/react-dom.js\""));
     assert!(code.contains("import Logo from \"../component/logo.js#/component/logo.tsx@000000\""));
     assert!(code.contains("import Logo2 from \"../component/logo.js#/component/logo.tsx@000001\""));
     assert!(code.contains("import Logo3 from \"../component/logo.js#/component/logo.tsx@000002\""));
     assert!(code.contains("const AsyncLogo = React.lazy(()=>import(\"../components/async-logo.js#/components/async-logo.tsx@000003\")"));
-    assert!(code.contains("export { useState } from \"../-/esm.sh/react@17.0.2.js\""));
-    assert!(code.contains("export * from \"[https://esm.sh/swr]:../-/esm.sh/swr.js\""));
+    assert!(code.contains("export { useState } from \"../-/esm.sh/react@experimental.js\""));
+    assert!(code.contains("export * from \"[https://esm.sh/swr@beta]:../-/esm.sh/swr@beta.js\""));
     assert_eq!(
       resolver.borrow().deps.last().unwrap().specifier,
       "https://esm.sh/swr"
