@@ -1,6 +1,6 @@
-import { dim, red, yellow } from 'https://deno.land/std@0.100.0/fmt/colors.ts'
-import { createHash } from 'https://deno.land/std@0.100.0/hash/mod.ts'
-import { dirname, basename, extname, join, relative } from 'https://deno.land/std@0.100.0/path/mod.ts'
+import { dim, red, yellow } from 'https://raw.githubusercontent.com/denoland/deno_std/main/fmt/colors.ts'
+import { createHash } from 'https://raw.githubusercontent.com/denoland/deno_std/main/hash/mod.ts'
+import { dirname, basename, extname, join, relative } from 'https://raw.githubusercontent.com/denoland/deno_std/main/path/mod.ts'
 import { minDenoVersion } from '../shared/constants.ts'
 import { existsFile, existsDir } from '../shared/fs.ts'
 import log from '../shared/log.ts'
@@ -100,7 +100,7 @@ export function getAlephPkgUri() {
   if (DEV_PORT) {
     return `http://localhost:${DEV_PORT}`
   }
-  return `https://deno.land/x/aleph@v${VERSION}`
+  return `https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/`
 }
 
 /** get the relative path from `from` to `to`. */
