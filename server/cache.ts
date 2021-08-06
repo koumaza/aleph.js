@@ -1,6 +1,6 @@
 import { ensureDir } from 'https://https://raw.githubusercontent.com/denoland/deno_std/main/fs/ensure_dir.ts'
 import { createHash } from 'https://https://raw.githubusercontent.com/denoland/deno_std/main/hash/mod.ts'
-import { join } from 'https://https://raw.githubusercontent.com/denoland/deno_std/main/path/mod.ts'
+import { join } from 'https://raw.githubusercontent.com/denoland/deno_std/main/path/mod.ts'
 import { existsFile } from '../shared/fs.ts'
 import log from '../shared/log.ts'
 import util from '../shared/util.ts'
