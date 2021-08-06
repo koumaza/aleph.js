@@ -642,7 +642,7 @@ mod tests {
   #[test]
   fn ssr_tree_shaking() {
     let source = r#"
-      import { useDeno } from 'https://deno.land/x/aleph/framework/react/mod.ts'
+      import { useDeno } from 'https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/react/mod.ts'
       import { join, basename, dirname } from 'https://deno.land/std/path/mod.ts'
       import React from 'https://esm.sh/react'
       import { get } from '../libs/db.ts'
