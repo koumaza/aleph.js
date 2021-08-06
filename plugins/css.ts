@@ -1,4 +1,4 @@
-import { extname, join } from 'https://deno.land/std@0.100.0/path/mod.ts'
+import { extname, join } from 'https://raw.githubusercontent.com/denoland/deno_std/main/path/mod.ts'
 import { esbuild } from '../bundler/esbuild.ts'
 import { toLocalPath, computeHash } from '../server/helper.ts'
 import { existsFile } from '../shared/fs.ts'
@@ -7,8 +7,8 @@ import util from '../shared/util.ts'
 import type { Aleph, LoadInput, LoadOutput, Plugin, PostCSSPlugin } from '../types.ts'
 
 const test = /\.(css|pcss|postcss)$/i
-const postcssVersion = '8.3.5'
-const postcssModulesVersion = '4.1.3'
+const postcssVersion = 'latest'
+const postcssModulesVersion = 'latest'
 const productionOnlyPostcssPlugins = ['autoprefixer']
 const isModulesPluginName = (v: any): v is string => (typeof v === 'string' && /^postcss\-modules(@|$)/i.test(v.trim()))
 
@@ -21,7 +21,7 @@ export const cssLoader = async ({ specifier, data }: LoadInput, aleph: Aleph): P
   if (isRemote && specifier.endsWith('.css') && !cssConfig.cache) {
     return {
       code: [
-        `import { applyCSS } from "https://deno.land/x/aleph/framework/core/style.ts"`,
+        `import { applyCSS } from "https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/core/style.ts"`,
         `export const href = ${JSON.stringify(specifier)}`,
         `export default {}`,
         `applyCSS(${JSON.stringify(specifier)}, { href })`,
@@ -33,7 +33,7 @@ export const cssLoader = async ({ specifier, data }: LoadInput, aleph: Aleph): P
   if (!isRemote && specifier.endsWith('.css') && await existsFile(join(aleph.workingDir, 'public', specifier))) {
     return {
       code: [
-        `import { applyCSS } from "https://deno.land/x/aleph/framework/core/style.ts"`,
+        `import { applyCSS } from "https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/core/style.ts"`,
         `export const href = ${JSON.stringify(specifier)}`,
         `export default {}`,
         `applyCSS(${JSON.stringify(specifier)}, { href })`,
@@ -116,7 +116,7 @@ export const cssLoader = async ({ specifier, data }: LoadInput, aleph: Aleph): P
     await aleph.addDist(path, (new TextEncoder).encode(css))
     return {
       code: [
-        `import { applyCSS } from "https://deno.land/x/aleph/framework/core/style.ts"`,
+        `import { applyCSS } from "https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/core/style.ts"`,
         `export const href = ${JSON.stringify('/_aleph/' + util.trimPrefix(path, '/'))}`,
         `export default ${JSON.stringify(modulesJSON)}`,
         `applyCSS(${JSON.stringify(specifier)}, { href })`
@@ -127,7 +127,7 @@ export const cssLoader = async ({ specifier, data }: LoadInput, aleph: Aleph): P
 
   return {
     code: [
-      `import { applyCSS } from "https://deno.land/x/aleph/framework/core/style.ts"`,
+      `import { applyCSS } from "https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/core/style.ts"`,
       `export const css = ${JSON.stringify(css)}`,
       `export default ${JSON.stringify(modulesJSON)}`,
       `applyCSS(${JSON.stringify(specifier)}, { css })`,
