@@ -1,4 +1,4 @@
-import { StyleHTMLAttributes, useContext, useEffect, useLayoutEffect } from 'https://esm.sh/react@17.0.2'
+import { StyleHTMLAttributes, useContext, useEffect, useLayoutEffect } from 'https://esm.sh/react@experimental'
 import { applyCSS, removeCSS } from '../../core/style.ts'
 import { SSRContext } from '../context.ts'
 import { inDeno } from '../helper.ts'

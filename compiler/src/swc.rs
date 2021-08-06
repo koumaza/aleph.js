@@ -442,7 +442,7 @@ mod tests {
   #[test]
   fn react_jsx() {
     let source = r#"
-      import React from "https://esm.sh/react"
+      import React from "https://esm.sh/react@experimental"
       export default function Index() {
         return (
           <>

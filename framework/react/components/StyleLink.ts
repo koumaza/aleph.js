@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect } from 'https://esm.sh/react@17.0.2'
+import { useEffect, useLayoutEffect } from 'https://esm.sh/react@experimental'
 import { recoverCSS, removeCSS } from '../../core/style.ts'
 import { inDeno } from '../helper.ts'
 

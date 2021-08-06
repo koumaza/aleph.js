@@ -21,8 +21,8 @@ export async function prepublish(version: string): Promise<boolean> {
       'aleph/types': `https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump//types.ts`,
       'aleph/web': `https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump//framework/core/mod.ts`,
       'aleph/react': `https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump//framework/react/mod.ts`,
-      'react': `https://esm.sh/react@experimmental`,
-      'react-dom': `https://esm.sh/react-dom@experimmental`,
+      'react': `https://esm.sh/react@experimental`,
+      'react-dom': `https://esm.sh/react-dom@experimental`,
     })
     await Deno.writeTextFile(
       './import_map.json',

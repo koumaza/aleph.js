@@ -31,7 +31,7 @@ export const markdownLoader = async ({ specifier }: LoadInput, aleph: Aleph): Pr
   if (framework === 'react') {
     return {
       code: [
-        `import { createElement } from 'https://esm.sh/react'`,
+        `import { createElement } from 'https://esm.sh/react@experimental'`,
         `import HTMLPage from 'https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/react/components/HTMLPage.ts'`,
         `export default function MarkdownPage(props) {`,
         `  return createElement(HTMLPage, {`,

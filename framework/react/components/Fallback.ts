@@ -2,7 +2,7 @@ import {
   createElement,
   PropsWithChildren,
   ReactNode
-} from 'https://esm.sh/react@17.0.2'
+} from 'https://esm.sh/react@experimental'
 import { FallbackContext } from '../context.ts'
 
 type FallbackProps = {

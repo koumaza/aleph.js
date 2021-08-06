@@ -8,7 +8,7 @@ import {
   useContext,
   useEffect,
   useMemo
-} from 'https://esm.sh/react@17.0.2'
+} from 'https://esm.sh/react@experimental'
 import util from '../../../shared/util.ts'
 import { SSRContext } from '../context.ts'
 import CustomScript from './CustomScript.ts'

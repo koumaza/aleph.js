@@ -1,5 +1,5 @@
-import { createElement } from 'https://esm.sh/react@17.0.2'
-import { hydrate, render } from 'https://esm.sh/react-dom@17.0.2'
+import { createElement } from 'https://esm.sh/react@experimental'
+import { hydrate, render } from 'https://esm.sh/react-dom@experimental'
 import { importModule } from '../core/module.ts'
 import { Routing, RoutingOptions } from '../core/routing.ts'
 import Router, { createPageRoute } from './components/Router.ts'

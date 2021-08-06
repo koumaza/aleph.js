@@ -1,4 +1,4 @@
-import { Component, createElement, CSSProperties } from 'https://esm.sh/react@17.0.2'
+import { Component, createElement, CSSProperties } from 'https://esm.sh/react@experimental'
 import { inDeno } from '../helper.ts'
 
 export class ErrorBoundary extends Component<{}, { error: Error | Promise<any> | null }> {

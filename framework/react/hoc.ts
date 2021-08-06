@@ -7,7 +7,7 @@ import {
   useContext,
   useEffect,
   useState
-} from 'https://esm.sh/react@17.0.2'
+} from 'https://esm.sh/react@experimental'
 import { FallbackContext } from './context.ts'
 import { isLikelyReactComponent } from './helper.ts'
 import { useRouter } from './hooks.ts'

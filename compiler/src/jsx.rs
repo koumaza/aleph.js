@@ -457,7 +457,7 @@ mod tests {
   #[test]
   fn resolve_jsx_builtin_tags() {
     let source = r#"
-      import React from "https://esm.sh/react"
+      import React from "https://esm.sh/react@experimental"
       export default function Index() {
         return (
           <>

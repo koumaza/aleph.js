@@ -7,7 +7,7 @@ import {
   useCallback,
   useEffect,
   useMemo,
-} from 'https://esm.sh/react@17.0.2'
+} from 'https://esm.sh/react@experimental'
 import util from '../../../shared/util.ts'
 import events from '../../core/events.ts'
 import { redirect } from '../../core/redirect.ts'

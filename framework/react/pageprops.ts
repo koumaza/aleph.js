@@ -1,4 +1,4 @@
-import { ComponentType } from 'https://esm.sh/react@17.0.2'
+import { ComponentType } from 'https://esm.sh/react@experimental'
 import { E400MissingComponent } from './components/ErrorBoundary.ts'
 import { isLikelyReactComponent } from './helper.ts'
 
