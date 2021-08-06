@@ -100,7 +100,7 @@ export function getAlephPkgUri() {
   if (DEV_PORT) {
     return `http://localhost:${DEV_PORT}`
   }
-  return `https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/`
+  return `https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump`
 }
 
 /** get the relative path from `from` to `to`. */
