@@ -1,5 +1,5 @@
 import { createElement } from 'https://esm.sh/react@experimental'
-import { hydrate, render } from 'https://esm.sh/react-dom@experimental'
+import { hydrateRoot, render } from 'https://esm.sh/react-dom@experimental'
 import { importModule } from '../core/module.ts'
 import { Routing, RoutingOptions } from '../core/routing.ts'
 import Router, { createPageRoute } from './components/Router.ts'
@@ -26,7 +26,8 @@ export default async function bootstrap(options: BootstrapOptions) {
       setStaticSsrRoutes(ssrRoutes)
     }
     loadSSRDataFromTag(url)
-    hydrate(routerEl, mountPoint)
+    let root = hydrateRoot(routerEl, mountPoint)
+    root.render(mountpoint)
   } else {
     render(routerEl, mountPoint)
   }
