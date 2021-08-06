@@ -26,8 +26,8 @@ export default async function bootstrap(options: BootstrapOptions) {
       setStaticSsrRoutes(ssrRoutes)
     }
     loadSSRDataFromTag(url)
-    let root = hydrateRoot(routerEl, mountPoint)
-    root.render(mountpoint)
+    let root = hydrateRoot(mountPoint, routerEl)
+    root.render(routerEl)
   } else {
     render(routerEl, mountPoint)
   }
