@@ -1,6 +1,6 @@
 import type { Aleph, LoadInput, LoadOutput, ResolveResult, Plugin } from '../types.ts'
-import marked from 'https://esm.sh/marked@2.0.1'
-import { safeLoadFront } from 'https://esm.sh/yaml-front-matter@4.1.1'
+import marked from 'https://esm.sh/marked'
+import { safeLoadFront } from 'https://esm.sh/yaml-front-matter@latest'
 import util from '../shared/util.ts'
 
 export const test = /\.(md|markdown)$/i
@@ -32,7 +32,7 @@ export const markdownLoader = async ({ specifier }: LoadInput, aleph: Aleph): Pr
     return {
       code: [
         `import { createElement } from 'https://esm.sh/react'`,
-        `import HTMLPage from 'https://deno.land/x/aleph/framework/react/components/HTMLPage.ts'`,
+        `import HTMLPage from 'https://raw.githubusercontent.com/koumaza/aleph.js/koumaza/bump/framework/react/components/HTMLPage.ts'`,
         `export default function MarkdownPage(props) {`,
         `  return createElement(HTMLPage, {`,
         `    ...${JSON.stringify(props)},`,
